@@ -9,6 +9,7 @@ History:
 '''
 import csv
 import requests
+import time
 
 def readurl_from_csv_upload(csvfile,uploadUrl,header = True):
     '''
@@ -34,6 +35,8 @@ def readurl_from_csv_upload(csvfile,uploadUrl,header = True):
             # error check. If all is well the status codes should
             # all be ok
             assert r.status_code == requests.codes.ok
+            # sleep 5 seconds
+            time.sleep(5)
 
 if __name__ == "__main__":
     # test case
