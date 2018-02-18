@@ -5,7 +5,7 @@ from a csv file with optional header
 __author__ = Eben Pendleton
 __date__ = 2/5/18
 History:
-2/5/18 initally written
+2/5/18 initially written
 '''
 import csv
 import requests
