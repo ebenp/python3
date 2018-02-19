@@ -23,12 +23,11 @@ def make_same_row_length_df(df1,df2):
             else:
                 out_df=df1
             # generate pad dataframe (the pad is the last row)
-            last_key=pd.DataFrame(out_df.copy().tail(1))
-            # make as many copies as needed to have dataframes 
+            last_row = pd.DataFrame(out_df.copy().tail(1))
+            # make as many copies as needed to have dataframes
             # the same length
-            for i in range(0,abs(l_copy)):
-                # append to pad dataframe
-                out_df = out_df.append(last_key,ignore_index=True)
+            last_row.reindex(np.repeat(last_row.index.values, abs(l_copy)), method='ffill')
+            out_df = out_df.append(last_row, ignore_index=True)
             # update original dataframe
             if l_copy > 0:
                 df2 = out_df
