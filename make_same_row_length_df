@@ -26,7 +26,7 @@ def make_same_row_length_df(df1,df2):
             last_row = pd.DataFrame(out_df.copy().tail(1))
             # make as many copies as needed to have dataframes
             # the same length
-            last_row.reindex(np.repeat(last_row.index.values, abs(l_copy)), method='ffill')
+            last_row=last_row.reindex(np.repeat(last_row.index.values, abs(l_copy)), method='ffill')
             out_df = out_df.append(last_row, ignore_index=True)
             # update original dataframe
             if l_copy > 0:
